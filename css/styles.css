@@ -7,6 +7,7 @@
     --button-bg-color: #F5F4FA;
     --logo-color: #000;
     --contact-footer-color: #FFFFFF99;
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 html{
     box-sizing: border-box;
@@ -74,6 +75,7 @@ ul {
 }
 .link{
     text-decoration: none;
+    transition: var(--transition);
 }
 .address-bar{
     /* max-width: 1600px; */
@@ -90,6 +92,7 @@ ul {
     color: var(--white-color);
     background-color: var(--accent-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    /* transition: color var(--transition); */
 }
 .navigation,
 .contact{
@@ -110,6 +113,19 @@ ul {
 .navigation:hover,
 .current{
     color: var(--accent-color);
+}
+.current{
+    position: relative;
+}
+.current::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    background-color: var(--accent-color);
+    left: 0;
+    bottom: -1px;
 }
 .fact-adress{
     color: var(--white-color);
@@ -146,20 +162,6 @@ ul {
     color: var(--second-text-color);
     width: 270px;
 }
-.team-first{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.18;
-    text-align: center;
-    padding-bottom: 10px;
-}
-.team-second{
-    font-size: 16px;
-    line-height: 1.18;
-    text-align: center;
-    color: var(--second-text-color);
-    padding-bottom: 30px;
-}
 .button{
     display: inline-block;
     border-radius: 4px;
@@ -173,6 +175,7 @@ ul {
     font-size: 16px;
     line-height: 1.62;
     text-align: center;
+    transition: var(--transition);
 }
 .port-btn{
     margin-right: 8px;
@@ -250,11 +253,13 @@ ul {
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+    transition: var(--transition);
 }
 .head-cont{
     display: block;
     padding-top: 32px;
     padding-bottom: 32px;
+    transition: var(--transition);
 }
 .head-link-item{
     margin-right: 50px;
@@ -281,6 +286,7 @@ ul {
     margin-left: -30px;
     margin-top: -30px;
 }
+/* ------------------------PORTFOLIO----------------------------------- */
 .portfolio-buttons{
     display: flex;
     flex-wrap: nowrap;
@@ -296,7 +302,41 @@ ul {
 .images-portfolio:hover,
 .images-portfolio:focus{
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: var(--transition);
 }
+.portfolio-image-text{
+    position: absolute;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background-color: rgba(33, 150, 243, 0.9);
+    top: 0;
+    left: 0;
+    padding: 63px 24px;
+    height: 100%;
+    transform: translateY(100%);
+    transition: var(--transition) 
+}
+.portfolio-overlay{
+    position: relative;
+    overflow: hidden;
+}
+.portfolio-overlay-link{
+    display: flex;
+    flex-direction: column;
+}
+.portfolio-overlay-link:hover,
+.portfolio-overlay-link:focus{
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+
+}
+.portfolio-overlay:hover  .portfolio-image-text,
+.portfolio-overlay:focus  .portfolio-image-text{
+    transform: translateY(0);
+}
+/* --------------------------------------------------------- */
 .main-theme{
     background-color: var(--background-color);
     /* max-width: 1600px; */
@@ -332,6 +372,7 @@ ul {
     margin-bottom: 30px;
     /* padding: 25px 100px; */
 }
+/* -------------------------ABOUT-------------------------------- */
 .about-images-list{
     margin-top: 50px;
     display: flex;
@@ -341,6 +382,46 @@ ul {
 }
 .about{
     margin-top: -94px;
+}
+.about-item{
+    position: relative;
+    margin-left: 30px;
+    margin-top: 30px;
+    flex-basis: calc(100% / 3 - 30px)
+}
+.about-title{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.specialization-title{
+    background: rgba(47, 48, 58, 0.8);
+    width: 100%;
+    padding-top: 27px;
+    padding-bottom: 27px;
+    margin-bottom: 0;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+/* -------------------------TEAM-------------------------------- */
+.team-first{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.18;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.team-second{
+    font-size: 16px;
+    line-height: 1.18;
+    text-align: center;
+    color: var(--second-text-color);
+    padding-bottom: 30px;
 }
 .team-box{
     background-color: var(--button-bg-color);
@@ -403,6 +484,7 @@ ul {
 .link-icon-team:focus .link-team-icon,
 .link-icon-team:hover .link-team-icon{  
     fill: #fff;
+    transition: var(--transition);
 }
 .link-icon-team:focus,
 .link-icon-team:hover{
@@ -414,7 +496,7 @@ ul {
 .team-item-first{
     text-align: center;
 }
-
+/* ----------------JOIN----------------------------------------------- */
 .join-icon{
     width: 20px;
     height: 20px;
@@ -487,4 +569,52 @@ ul {
 .clients-link:hover .clients-icon,
 .clients-link:focus .clients-icon {
     fill: var(--accent-color);
+    transition: var(--transition);
+}
+/* ----------------------MODALKA--------------------------- */
+.backdrop{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 0.8s, visibility 0.8s;
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+.backdrop.is-hidden .modal{
+    transform: translate(-50%, 0%) scale(0);
+}
+.modal {
+    width: 528px;
+    min-height: 581px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.8s;    
+}
+.btn-close {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+.close-icon{
+    fill: black;
 }
