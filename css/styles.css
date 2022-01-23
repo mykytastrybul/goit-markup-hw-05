@@ -375,6 +375,7 @@ ul {
 /* -------------------------ABOUT-------------------------------- */
 .about-images-list{
     margin-top: 50px;
+    margin-left: -30px;
     display: flex;
 }
 .about-image{
